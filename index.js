@@ -1,6 +1,7 @@
 const express = require('express');
 const PORT = process.env.PORT || 3000;
-const studentRoutes = require('./src/students/routes');
+const usersRoutes = require('./src/users/routes');
+const postsRoutes = require('./src/posts/post-routes');
 
 const app = express();
 
@@ -11,7 +12,8 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/api/v1/students', studentRoutes);
+app.use('/api/v1/', usersRoutes);
+app.use('/api/v1/', postsRoutes);
 
 
 app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
